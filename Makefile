@@ -67,7 +67,7 @@ draw: $(layer_drawing)
 
 $(layer_drawing): keymap_drawer.yaml
 	keymap draw --qmk-keyboard corne_rotated $< >| $@.svg
-	inkscape --export-pdf=$@ $@.svg
+	if command -v inkscape; then inkscape --export-pdf=$@ $@.svg; fi
 
 keymap_drawer.yaml: config/maizeless.keymap
 	keymap parse -c 10 -z $< >| $@
