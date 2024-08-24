@@ -1,5 +1,12 @@
 name: Build firmware
-on: [push, pull_request, workflow_dispatch]
+on:
+  workflow_dispatch:  # can be triggered manually
+  pull_request:
+  push:               # automatically run on changes to following paths
+    paths:
+      - "config/*"
+      - ".github/workflows/build.yml"
+
 
 jobs:
   build:

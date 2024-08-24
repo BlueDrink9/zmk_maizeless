@@ -4,8 +4,8 @@ on:
   push:               # automatically run on changes to following paths
     paths:
       - "config/*.keymap"
-      - "boards/shields/maizeless/*.dtsi"
-      - "keymap_drawer.config.yaml"
+      - "config/boards/shields/maizeless/*.dtsi"
+      - ".github/workflows/draw-keymaps.yml"
 
 jobs:
   prepare:
