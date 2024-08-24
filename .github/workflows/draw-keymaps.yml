@@ -8,7 +8,7 @@ on:
       - ".github/workflows/draw-keymaps.yml"
 
 jobs:
-  prepare:
+  draw:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -16,7 +16,7 @@ jobs:
     - name: Install keymap_drawer
       run: python -m pip install keymap-drawer
     - name: Make keymap_drawer.yaml
-      run: make keymap_drawer.yaml
+      run: make draw
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
@@ -25,3 +25,15 @@ jobs:
       destination: "artifact"
       keymap_patterns: "config/*.keymap"
       config_path: "keymap_drawer.yaml"
+      draw_args: "--qmk-keyboard corne_rotated"
+      fail_on_error: true
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Artifact upload
+        id: artifact-upload-step
+        uses: actions/upload-artifact@v4
+        with:
+          name: drawing svg
+          path: maizeless_keymap.mine.pdf.svg
