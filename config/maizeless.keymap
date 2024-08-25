@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
-// From dhruvinsh
+// From urob
 #include <behaviors/num_word.dtsi>
 
 #define L_QWERTY  0
@@ -22,10 +22,6 @@
 #define L_SFT_VIM 7
 #define L_VIM_VIS 8
 
-&num_word {
-    layers = <L_NUMS>;
-};
-
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -36,7 +32,7 @@
 &kp TAB         &kp Q        &kp W         &lt L_SPECIAL E  &kp R       &kp T          &kp Y   &kp U       &lt L_SPECIAL I &kp O           &kp P            &kp MINUS
 &kp BSPC        &kp A        &hrm LCTRL S  &hrm LGUI D      &hrm LALT F &kp G          &kp H   &hrm RALT J &hrm RGUI K     &hrm RCTRL L    &kp SEMI         &kp APOS
 &mt LSHFT LBKT  &hrm LCTRL Z &lt L_NUMS X  &kp C            &lt L_VIM V &hrm LALT B    &kp N   &lt L_VIM M &kp COMMA       &lt L_NUMS DOT  &hrm RCTRL SLASH &mt RSHFT RBKT
-                                           &gresc           &kp SPACE   &del_bspc         &num_word  &kp RSHFT   &kp RET
+                                           &gresc           &kp SPACE   &del_bspc         &num_word L_NUMS  &kp RSHFT   &kp RET
             >;
         };
 
