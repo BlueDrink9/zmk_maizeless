@@ -5,6 +5,8 @@ manifest:
     # urob for zmk-auto-layer, num-word
     - name: urob
       url-base: https://github.com/urob
+    - name: bluedrink9
+      url-base: https://github.com/bluedrink9
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -14,6 +16,9 @@ manifest:
       import: app/west.yml
     - name: zmk-auto-layer
       remote: urob
+      revision: main
+    - name: zmk-poor-mans-led-indicator
+      remote: bluedrink9
       revision: main
   self:
     path: config
