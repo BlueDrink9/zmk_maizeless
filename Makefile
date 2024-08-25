@@ -1,7 +1,10 @@
 # Clone zmk to here
 zmk_src_dir=$(HOME)/src/zmk
 # Clone external modules into here first
-external_modules_list := "$(zmk_src_dir)/modules/zmk-auto-layer"
+external_modules_list := " \
+						 $(zmk_src_dir)/modules/zmk-auto-layer \
+						 $(zmk_src_dir)/modules/zmk-poor-mans-led-indicator \
+						 "
 board=nice_nano_v2
 shield=maizeless
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -10,7 +13,7 @@ config_dir = $(mkfile_dir)/config
 EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
 COMMA := ,
-external_modules = $(subst $(SPACE),$(COMMA),$(external_modules_list))
+external_modules = $(subst $(SPACE),;,$(external_modules_list))
 
 mount_path=/run/media/$(USER)/NICENANO/
 
