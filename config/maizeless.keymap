@@ -22,6 +22,7 @@
 #define L_SFT_VIM 7
 #define L_VIM_VIS 8
 
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -243,4 +244,8 @@
             mods = <(MOD_RSFT)>;
         };
     };
+};
+
+&sl {
+    release-after-ms = <6000>;
 };
